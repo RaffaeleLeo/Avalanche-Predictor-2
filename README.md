@@ -26,6 +26,15 @@ All training was done in Colab:
 
 ---
 
+### Tech Stack
+
+- Python (Pandas, NumPy, Scikit-learn, PySpark)
+- OpenAI Embeddings API
+- Dimensionality Reduction (PCA/UMAP)
+- Jupyter for exploration and prototyping
+
+---
+
 ### Key Experiments
 
 #### 1. **Embedding-Based Severity Clustering**
@@ -51,13 +60,44 @@ Top 5 most similar matches:
 
 ---
 
-### Tech Stack
+### New: Backcountry Assistant
+A natural-language interface for backcountry skiers.
 
-- Python (Pandas, NumPy, Scikit-learn, PySpark)
-- OpenAI Embeddings API
-- Dimensionality Reduction (PCA/UMAP)
-- Jupyter for exploration and prototyping
+This assistant takes a user’s trip description (e.g., “South-facing slope near Vail, slushy conditions”), finds the five most similar avalanche reports from the CAIC dataset, and then:
 
+Predicts a danger level (D1–D5) based on historical severity data
+
+Generates a safety advisory using an LLM (gpt-4o-mini) that summarizes what to look out for based on those past events
+
+It leverages OpenAI embeddings for similarity search and combines it with LLM-powered summarization for a skier-facing output.
+
+### Run the assistant
+
+```bash
+python3 assistant.py
+```
+
+Example interaction:
+
+```vbnet
+Hello! I will be your backcountry assistant for today, just tell me what your conditions are and I
+      will give tips on what dangers to look for and avoid using avalanche data from the past.
+Enter a description of the avalanche scenario: Hi! I am heading up a westfacing slope near vail where me and two friends will ski down a narrow shoot into a wide bowl, conditions are cold and sunny and it has not snowed for a few days.
+
+Predicted Danger Rating for Your Scenario: D1.5
+
+Based on the current conditions you're facing and the historical avalanche reports in similar situations, here’s some advice for your skiing day:
+
+1. **Avalanche Danger Awareness**: You mentioned an average danger rating of 1.5, which falls between D1 and D2. While this rating suggests that conditions are relatively safe, it does indicate a slight risk of avalanches large enough to bury a person. Stay vigilant, especially in steep or wind-loaded areas.
+
+2. **Slope Orientation and Aspect**: Since you're skiing on a west-facing slope, be aware that the stability can vary based on the specific aspect, especially since you have reports of avalanches on both easterly and westerly aspects. Avalanches can still be triggered by human activity, especially in steep terrain.
+
+3. **Narrow Chutes and Bowls**: When skiing into a narrow chute leading into a wide bowl, be cautious of potential loading from wind and the possibility of slab formation. Watch for signs of instability such as cracking or whumpfing sounds, which can indicate a weak layer beneath the snow.
+
+4. **Recent Weather**: The cold and sunny conditions following several days without snow may have led to some surface stabilization, but be alert for any signs of warming, especially if the sun hits the slope directly. This can create wet loose snow conditions, which could trigger small avalanches.
+
+In summary, while the conditions may seem favorable, remain cautious, particularly in steep areas, and keep an eye on the snowpack behavior as you proceed. Stay safe and have fun!
+```
 ---
 
 ### Interactive Classifier (Spark-based)
@@ -66,7 +106,7 @@ This script prompts users step-by-step and predicts the **danger level** based o
 
 #### **Run the script**
 ```bash
-python classifier.py
+python3 classifier.py
 ```
 You'll be asked to enter:
 - Elevation
