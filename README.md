@@ -55,9 +55,6 @@ Top 5 most similar matches:
 
 This script prompts users step-by-step and predicts the **danger level** based on conditions and location using a PySpark model pipeline.
 
-#### **Files Needed**
-- `data/cvModel/` — folder containing the trained PySpark `PipelineModel`
-
 #### **Run the script**
 ```bash
 python interactive_spark_predictor.py
@@ -72,20 +69,3 @@ You'll be asked to enter:
 
 The model will respond with a message like:
 > "Your danger level is D3: danger levels are high, avalanches have the possibility of moving vehicles."
-
----
-
-### Folder Structure
-```
-Avalanche-Predictor-2/
-├── data/
-│   ├── embeddings.csv
-│   ├── avalanche_metadata.csv
-│   └── cvModel/                 <- your trained PySpark model
-├── predict_avalanche.py        <- CLI-based embedding similarity tool
-├── interactive_danger_predictor.py <- Sklearn-based danger predictor (optional)
-├── interactive_spark_predictor.py   <- PySpark pipeline user interface
-├── Avalanche_2.ipynb
-├── requirements.txt
-└── README.md
-```
