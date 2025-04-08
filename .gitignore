@@ -16,6 +16,3 @@ venv/
 # PySpark output/temp
 .metastore_db/
 derby.log
-
-# Model output
-data/cvModel/

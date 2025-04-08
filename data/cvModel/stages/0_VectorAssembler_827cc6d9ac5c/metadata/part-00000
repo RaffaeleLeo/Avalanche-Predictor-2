@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.VectorAssembler","timestamp":1744052327106,"sparkVersion":"3.5.5","uid":"VectorAssembler_827cc6d9ac5c","paramMap":{"outputCol":"features","inputCols":["Elev_imputed","Asp_imputed","Type_imputed","Trig_imputed","sizeR_imputed","Area_imputed"]},"defaultParamMap":{"outputCol":"VectorAssembler_827cc6d9ac5c__output","handleInvalid":"error"}}
