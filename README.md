@@ -32,6 +32,9 @@ All training was done in Colab:
 - OpenAI Embeddings API
 - Dimensionality Reduction (PCA/UMAP)
 - Jupyter for exploration and prototyping
+- Matplotlib / Seaborn: Data visualization and EDA
+- Ngrok: For exposing Spark UI to the web inside Colab
+- K-Means Clustering: Unsupervised severity grouping in embedding space
 
 ---
 
@@ -58,18 +61,22 @@ Top 5 most similar matches:
   <img width="684" src="https://github.com/user-attachments/assets/50ffd9ba-cacf-4142-8f80-83494590a10e" alt="Cosine similarity output">
 </p>
 
+#### 3. Structured Input Classifier (Spark-Based)
+Built a PySpark pipeline to classify avalanche danger levels based on structured features like elevation, slope aspect, snow type, slope size, and region.
+
+Trained a Random Forest classifier using historical CAIC data and Spark MLlib.
+
+Deployed as a command-line interface that prompts the user for their route conditions and outputs a predicted avalanche danger level.
+
 ---
 
 ### New: Backcountry Assistant
-A natural-language interface for backcountry skiers.
+An AI-powered assistant for backcountry skiers that transforms freeform trip descriptions into actionable avalanche safety guidance.
 
-This assistant takes a user’s trip description (e.g., “South-facing slope near Vail, slushy conditions”), finds the five most similar avalanche reports from the CAIC dataset, and then:
-
-Predicts a danger level (D1–D5) based on historical severity data
-
-Generates a safety advisory using an LLM (gpt-4o-mini) that summarizes what to look out for based on those past events
-
-It leverages OpenAI embeddings for similarity search and combines it with LLM-powered summarization for a skier-facing output.
+Users describe their planned route (e.g., “West-facing slope near Vail, sunny and cold”), and the assistant:
+- Finds the five most similar historical avalanche reports using **OpenAI embeddings**
+- ⚠Predicts a **danger level** (D1–D5) based on past severity
+- Uses **GPT-4o-mini** to generate personalized advice on what to watch out for
 
 ### Run the assistant
 
