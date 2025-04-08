@@ -57,7 +57,7 @@ This script prompts users step-by-step and predicts the **danger level** based o
 
 #### **Run the script**
 ```bash
-python interactive_spark_predictor.py
+python classifier.py
 ```
 You'll be asked to enter:
 - Elevation
