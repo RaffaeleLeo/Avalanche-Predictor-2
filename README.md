@@ -79,7 +79,7 @@ python3 assistant.py
 
 Example interaction:
 
-```vbnet
+```text
 Hello! I will be your backcountry assistant for today, just tell me what your conditions are and I
       will give tips on what dangers to look for and avoid using avalanche data from the past.
 Enter a description of the avalanche scenario: Hi! I am heading up a westfacing slope near vail where me and two friends will ski down a narrow shoot into a wide bowl, conditions are cold and sunny and it has not snowed for a few days.
