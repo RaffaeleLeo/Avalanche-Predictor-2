@@ -17,6 +17,15 @@ This second iteration builds on earlier work, expanding the dataset and ML techn
 
 ---
 
+## Training
+
+All training was done in Colab:
+
+- [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/17CC6RTRE8M_lyUVK5uHwXcGs3fxLnIbo?usp=sharing)
+- Dataset and training parameters are configurable in the notebook
+
+---
+
 ### Key Experiments
 
 #### 1. **Embedding-Based Severity Clustering**
